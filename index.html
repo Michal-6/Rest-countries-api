@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rest countries api</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide_scrollbar::-webkit-scrollbar {
+        display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide_scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        }
+        @media only screen and (max-width: 570px) {.country {width: 100%;}}
+        @media only screen and (min-width: 571px) {.country {width: 288px;}}
+
+        @media only screen and (max-width: 831px) {#cards_holder {justify-content: center; gap: 64px;}}
+        @media only screen and (min-width: 832px) {#cards_holder {justify-content: space-between; gap: 128px;}}
+    </style>
+
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="main.js" defer></script>
+</head>
+<body onload="getAPI(); if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark'); document.getElementById('f_moon').classList.remove('hidden'); document.getElementById('o_moon').classList.add('hidden');}" class="hide_scrollbar bg-veryLightGray text-veryDarkBlueText  dark:bg-veryDarkBlue dark:text-white font-nunito">
+    <nav class="flex justify-between bg-white dark:bg-darkBlue px-32px lg:px-64px py-32px">
+        <span class="text-16px lg:text-24px font-800">Where in the world?</span>
+        <div onclick="document.documentElement.classList.toggle('dark'); document.getElementById('f_moon').classList.toggle('hidden'); document.getElementById('o_moon').classList.toggle('hidden');" class="cursor-pointer font-300 flex items-center gap-8px lg:gap-16px text-16px">
+            <span id="f_moon" class="material-symbols-outlined hidden" style="font-variation-settings:'FILL'1">dark_mode</span>
+            <span id="o_moon" class="material-symbols-outlined" style="font-variation-settings:'FILL'0">dark_mode</span>
+            <span>Dark Mode</span>
+        </div>
+    </nav>
+
+    <div class="mx-32px lg:mx-64px my-40px flex flex-col lg:flex-row gap-32px justify-between text-veryDarkBlueText dark:text-white">
+        <span class="rounded-lg h-56px px-32px py-16px flex gap-16px w-full lg:w-448px bg-white dark:bg-darkBlue">
+            <span class="material-symbols-outlined">search</span>
+            <input oninput="search();" class="w-full bg-opacity0 border-none outline-none" type="text" name="search_i" id="search_i" maxlength="38" placeholder="Search for a country...">
+        </span>
+    
+        <div class="flex flex-col gap-8px relative">
+            <button onclick="var x = document.getElementById('drop'); x.classList.toggle('hidden'); x.classList.toggle('flex');" class="rounded-lg w-256px p-16px flex justify-between bg-white dark:bg-darkBlue">
+                <span id="drop_text" class="capitalize">Filter by Region</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </button>
+            <div id="drop" class="z-10 hidden absolute top-64px rounded-lg w-256px flex-col">
+                <span onclick="filterByRegion('Africa');" class="cursor-pointer rounded-t-lg pt-16px px-16px py-8px w-full bg-white dark:bg-darkBlue">Africa</span>
+                <span onclick="filterByRegion('Americas');" class="cursor-pointer px-16px py-8px w-full bg-white dark:bg-darkBlue">America</span>
+                <span onclick="filterByRegion('Asia');" class="cursor-pointer px-16px py-8px w-full bg-white dark:bg-darkBlue">Asia</span>
+                <span onclick="filterByRegion('Europe');" class="cursor-pointer px-16px py-8px w-full bg-white dark:bg-darkBlue">Europe</span>
+                <span onclick="filterByRegion('Oceania');" class="cursor-pointer rounded-b-lg pb-16px px-16px py-8px w-full bg-white dark:bg-darkBlue">Oceania</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="cards_holder" class="mx-32px lg:mx-64px pb-64px flex flex-wrap">
+    </section>
+</body>
+</html>

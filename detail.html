@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Details</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+        .hide_scrollbar::-webkit-scrollbar {
+        display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .hide_scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        }
+
+        .detail_wrap{width: 100%; display: flex; align-items: center;}
+        .detail_content_wrap{font-size: 14px; font-weight: 300; display: flex; flex-direction: column;}
+        .detail_text_wrap{display: flex; justify-content: space-between; font-size: 16px; padding-bottom: 64px;}
+        .detail_header{font-size: 32px; font-weight: 600; padding-bottom: 40px;}
+        .detail_title{font-weight: 600;}
+        .detail_content{font-weight: 300;}
+        .bc_title{min-width: 150px; margin-top: 6px;}
+
+        @media only screen and (max-width: 831px) {
+            .detail_wrap{flex-direction: column;  gap: 64px; } 
+            .detail_content_wrap{width: 100%;}
+            .detail_text_wrap{flex-direction: column; gap: 64px;} 
+            .border-countries_wrap{gap: 16px; flex-direction: column;}
+            .detail_flag{width: 100%;}
+        }
+        @media only screen and (min-width: 832px) {
+            .detail_wrap{flex-direction: row;  gap: 128px; }
+            .detail_content_wrap{width: 50%;}
+            .detail_text_wrap{flex-direction: row; gap: 0px;}
+            .border-countries_wrap{gap: 0px; flex-direction: row;}
+            .detail_flag{width: 50%;}
+        }
+    </style>
+
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="main.js" defer></script>
+</head>
+<body onload="fetchDetails(); if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark'); document.getElementById('f_moon').classList.remove('hidden'); document.getElementById('o_moon').classList.add('hidden');}" class="hide_scrollbar bg-veryLightGray text-veryDarkBlueText  dark:bg-veryDarkBlue dark:text-white font-nunito">
+    <nav class="flex justify-between bg-white dark:bg-darkBlue px-32px lg:px-64px py-32px">
+        <span class="text-16px lg:text-24px font-800">Where in the world?</span>
+        <div onclick="document.documentElement.classList.toggle('dark'); document.getElementById('f_moon').classList.toggle('hidden'); document.getElementById('o_moon').classList.toggle('hidden');" class="cursor-pointer font-300 flex items-center gap-8px lg:gap-16px text-16px">
+            <span id="f_moon" class="material-symbols-outlined hidden" style="font-variation-settings:'FILL'1">dark_mode</span>
+            <span id="o_moon" class="material-symbols-outlined" style="font-variation-settings:'FILL'0">dark_mode</span>
+            <span>Dark Mode</span>
+        </div>
+    </nav>
+
+    <div class="mx-32px lg:mx-64px my-64px text-veryDarkBlueText dark:text-white">
+        <a href="./index.html" class="rounded-lg w-fit px-32px py-16px flex gap-16px justify-between bg-white dark:bg-darkBlue">
+            <span class="material-symbols-outlined">keyboard_backspace</span>
+            <span id="drop_text" class="capitalize">Back</span>
+        </a>
+    </div>
+
+    <section id="details_holder" class="mx-32px lg:mx-64px pb-64px flex flex-wrap">
+    </section>
+</body>
+</html>
