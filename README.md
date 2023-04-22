@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/responsive-countries-page-FdTE74M6K3))
-- Live Site URL: [Add live site URL here]([https://your-live-site-url.com](https://michal-6.github.io/Rest-countries-api/))
+- Solution URL: [[Add solution URL here](https://your-solution-url.com](https://www.frontendmentor.io/solutions/responsive-countries-page-FdTE74M6K3)]([https://your-solution-url.com](https://www.frontendmentor.io/solutions/responsive-countries-page-FdTE74M6K3))
+- Live Site URL: [[Add live site URL here](https://your-live-site-url.com](https://michal-6.github.io/Rest-countries-api/)]([https://your-live-site-url.com](https://michal-6.github.io/Rest-countries-api/))
 
 ## My process
 
